@@ -1,0 +1,147 @@
+Nome: Diego Pereira da Silva
+
+Exercicio 1: Soma de Matrizes:
+Desenvolva um programa que realiza a soma de duas matrizes 3X3, exibindo o resultado no console. 
+-------------------------------------------------------------------------------------------------
+
+package exercicios;
+
+public class Exercicios1 {
+
+	public static void main(String[] args) {
+		
+		int linha = 3, coluna = 3;
+		
+		int[][] matriz1 = {
+				{1, 2, 3},
+	            {4, 5, 6},
+	            {7, 8, 9}
+		};
+		int[][] matriz2 = {
+				{5, 7, 10},
+	            {7, 14, 20},
+	            {3, 2, 1}
+		};
+		
+		int[][] resul = new int[linha][coluna];
+
+		for(int i=0; i < matriz1.length; i++) {
+			for(int j=0; j < matriz1[i].length; j++) {
+				resul[i][j] = matriz1[i][j] + matriz2[i][j];
+				
+			}
+			
+		}
+		System.out.println("Resultado da soma das matrizes: \n");
+		
+		for(int y=0; y < resul.length; y++) {
+			for(int x = 0; x < resul[y].length; x++) {
+				System.out.print(resul[y][x] + " ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+Exercicio 2: Multiplicação de Matriz por Escalar:
+Crie um programa que verifique se um login e senha confere com os dados de uma matriz 6x2.
+-------------------------------------------------------------------------------------------
+
+package exercicios;
+
+import java.util.Scanner;
+
+public class Exercicios1 {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		String user, passw;
+		boolean v = false;
+		
+		String[][] dadosLogin = {
+			{"diego", "01234"},
+			{"paulo", "75654"},
+			{"rodrigo", "87546"},
+			{"paixao", "24674"},
+			{"felipe", "34678"},
+			{"mateus", "12345"},
+		};
+		
+		System.out.println("Entre com o usuário: ");
+		user = scan.nextLine();
+		System.out.println("Entre com a senha: ");
+		passw = scan.nextLine();
+		
+		
+		for(int i = 0; i < dadosLogin.length; i++) {
+			if(dadosLogin[i][0].equals(user) && dadosLogin[i][1].equals(passw)) {
+				v = true;
+				break;
+			}
+			
+		}
+			if(v) {
+				System.out.println("Dados conferem, login concluido.");
+			} else {
+				System.out.println("Dados NÃO conferem, login negado.");
+			}
+	}
+}
+
+
+Exercicio 3: Transposição de Matriz:
+Desenvolva um código que realiza a transposição de uma matriz (as colunas viram linhas e as linhas viram colunas). Peça aos usuários para inserirem os elementos da matriz, exibindo a matriz transposta no console.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package exercicios;
+
+import java.util.Scanner;
+
+public class Exercicios1 {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		int[][] numbers = new int[4][3];
+		
+		int rows = numbers.length;
+		int columns = numbers[0].length;
+		
+		int[][] numbersT = new int[columns][rows];
+		
+		
+		for(int i = 0; i < numbers.length; i++) {
+			for(int j = 0; j < numbers[i].length; j++) {
+				System.out.println("Entre com o elemento da linha " + i + " da coluna " + j + ": ");
+				numbers[i][j] = scan.nextInt();
+			} 
+		}
+		
+		System.out.print("Imprimindo matriz Original: ");
+		for(int i = 0; i < numbers.length; i++) {
+			for(int j = 0; j < numbers[i].length; j++) {
+				System.out.print(numbers[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		
+		for(int i = 0; i < rows; i++) {
+			for(int j = 0; j < columns; j++) {
+				numbersT[j][i] = numbers[i][j];
+			}
+		}
+		
+		System.out.print("Imprimindo matriz transposta: ");
+		for(int i = 0; i < columns; i++) {
+			for(int j = 0; j < rows; j++) {
+				System.out.print(numbersT[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}	
+}
